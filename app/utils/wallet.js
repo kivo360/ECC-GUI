@@ -47,15 +47,32 @@ export default class Wallet {
     });
   }
 
-  listAllAccounts() {
-    return new Promise((resolve, reject) => {
-      client.listReceivedByAddress(0, true).then((data) => {
-        resolve(data);
-        return data;
-      }).catch((err) => {
-        reject(err);
-      });
-    });
+  async getTransactions(account) {
+    let transactions;
+    if (account == null) {
+      transactions = await client.listTransactions();
+    } else {
+      transactions = await client.listTransactions(account);
+    }
+    return transactions;
+  }
+
+  async listAllAccounts() {
+    const addresses = await client.listReceivedByAddress(0, true);
+    return addresses;
+  }
+
+  async createNewAddress(nameOpt) {
+    let name = nameOpt || null;
+    let newAddress;
+    if(name===null){
+      // Create address without name
+      newAddress = await client.getNewAddress();
+    }else{
+      // Create the new address with the name
+      newAddress = await client.getNewAddress(name);
+    }
+    return newAddress;
   }
 
   sendMoney(sendAddress) {

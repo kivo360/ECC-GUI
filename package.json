@@ -191,6 +191,7 @@
     "faker": "^4.1.0",
     "font-awesome": "^4.7.0",
     "history": "^4.6.1",
+    "jquery": "^3.2.1",
     "lowdb": "^0.16.2",
     "react": "^15.5.4",
     "react-bootstrap-table": "^3.4.2",
@@ -202,6 +203,7 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
+    "request-promise-native": "^1.0.4",
     "source-map-support": "^0.4.15"
   },
   "devEngines": {

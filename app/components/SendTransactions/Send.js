@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import AddressBook from './AddressBook';
 class Send extends Component {
   render() {
     return (
@@ -7,7 +7,7 @@ class Send extends Component {
         <div className="col-md-12">
           <div className="panel panel-default">
             <div className="panel-body">
-              This is where the address book will go
+              <AddressBook />
             </div>
           </div>
         </div>
