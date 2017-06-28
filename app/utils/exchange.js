@@ -1,4 +1,6 @@
-function exchanges() {
+const request = require('request-promise-native');
+
+export function exchanges() {
   const list = [
     {
       name: 'CoinExchange.io',
@@ -25,4 +27,20 @@ function exchanges() {
       })).then(() => lastPrices);
     },
   };
+}
+
+
+export function Interval(fn, time) {
+    var timer = false;
+    this.start = function () {
+        if (!this.isRunning())
+            timer = setInterval(fn, time);
+    };
+    this.stop = function () {
+        clearInterval(timer);
+        timer = false;
+    };
+    this.isRunning = function () {
+        return timer !== false;
+    };
 }

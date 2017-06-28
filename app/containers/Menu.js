@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import style from './Menu.css';
+
 class Menu extends Component {
 
   render() {
@@ -16,7 +18,7 @@ class Menu extends Component {
                 <li>
 
                   <Link to="/">
-                    <a href="#">
+                    <a href="#" className={style.whiteNav}>
                       Overview
                     </a>
                    </Link>
@@ -25,7 +27,7 @@ class Menu extends Component {
 
                 <li className="active">
                   <Link to="/send">
-                    <a href="#">
+                    <a href="#" className={style.whiteNav}>
                       Send
                       <span className="sr-only">(current)</span>
                     </a>
@@ -36,7 +38,7 @@ class Menu extends Component {
                 <li>
 
                   <Link to="/receive">
-                    <a href="#">
+                    <a href="#" className={style.whiteNav}>
                       Recieve
                     </a>
                    </Link>
@@ -46,7 +48,7 @@ class Menu extends Component {
                 <li>
 
                   <Link to="/transaction">
-                    <a href="#">
+                    <a href="#" className={style.whiteNav}>
                       Transactions
                     </a>
                    </Link>
@@ -56,7 +58,7 @@ class Menu extends Component {
                 <li>
 
                   <Link to="/about">
-                    <a href="#">
+                    <a href="#" className={style.whiteNav}>
                       About
                     </a>
                    </Link>

@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import faker from 'faker';
 
+import Wallet from '../../utils/wallet';
+import CurrentAddresses from '../ReceiveTransaction/CurrentAddressTable';
+import TransTable from './TransactionTable';
 
+const wallet = new Wallet();
 require('./Transactions.css');
 
 function createTableData() {
@@ -29,6 +33,8 @@ function createTableData() {
 }
 
 
+
+
 class Transaction extends Component {
   constructor(props) {
     super(props);
@@ -51,12 +57,7 @@ class Transaction extends Component {
         <div className="col-md-12">
           <div className="panel panel-default">
             <div className="panel-body">
-              <BootstrapTable data={this.state.sample} striped hover>
-                  <TableHeaderColumn width='25%' isKey dataField='date'>Date</TableHeaderColumn>
-                  <TableHeaderColumn width='25%' dataField='confirmations'>Confirmations</TableHeaderColumn>
-                  <TableHeaderColumn width='25%' dataField='transactionId'>TransactionId</TableHeaderColumn>
-                  <TableHeaderColumn width='25%' dataField='amount'>Amount</TableHeaderColumn>
-              </BootstrapTable>
+              <TransTable />
             </div>
           </div>
         </div>
@@ -64,7 +65,8 @@ class Transaction extends Component {
         <div className="col-md-12">
           <div className="panel panel-default">
             <div className="panel-body">
-              Address Goes Here
+              <h3>Current Accounts</h3>
+              <CurrentAddresses />
             </div>
           </div>
         </div>
