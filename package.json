@@ -125,6 +125,7 @@
     "babel-plugin-transform-es2015-classes": "^6.24.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.5.1",
+    "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-react-optimize": "^1.0.1",
@@ -185,10 +186,14 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "bitcoin-core": "^1.2.0",
     "electron-debug": "^1.1.0",
+    "faker": "^4.1.0",
     "font-awesome": "^4.7.0",
     "history": "^4.6.1",
+    "lowdb": "^0.16.2",
     "react": "^15.5.4",
+    "react-bootstrap-table": "^3.4.2",
     "react-dom": "^15.5.4",
     "react-hot-loader": "3.0.0-beta.6",
     "react-redux": "^5.0.5",
