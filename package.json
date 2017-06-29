@@ -187,6 +187,8 @@
   },
   "dependencies": {
     "bitcoin-core": "^1.2.0",
+    "bootstrap": "^3.3.7",
+    "bootstrap-material-design": "^0.5.10",
     "electron-debug": "^1.1.0",
     "faker": "^4.1.0",
     "font-awesome": "^4.7.0",
