@@ -1,40 +1,59 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
+import low from '../../utils/low';
+import Wallet from '../../utils/wallet';
+
+const wallet = new Wallet();
+
 class AddressBook extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      friendList: [
-        { label: 'name1', address: 'ECCAdress1' },
-        { label: 'name2', address: 'ECCAdress2' }
-      ],
+      friendList: low.get('friends').value(),
       isAdding: false,
       buttonSign: 'Add Address'
     };
 
 
-    console.log(this.state);
     this._handleInput = this._handleInput.bind(this);
     this._handleToggleAddAddress = this._handleToggleAddAddress.bind(this);
+
+
+  }
+
+
+  _init_() {
+    // Initialize friendlist
+    const friendListArray =  low.get('friends').value();
+    console.log(friendListArray);
+    this.setState({friendList: friendListArray });
   }
 
   _handleInput(event) {
-    let target = event.target;
+    const target = event.target;
     const name = target.name;
     const value = target.value;
 
     this.setState({ [name]: value });
   }
 
-  _handleToggleAddAddress() {
+  async _handleToggleAddAddress() {
     if (this.state.isAdding === false){
       this.setState({ isAdding: true, buttonSign: 'Complete Add' });
     } else {
       let friendArray = this.state.friendList;
       // Need to validate first. Very possible to use async
-      friendArray.push({ label: this.state.label, address: this.state.address });
-      this.setState({ isAdding: false, buttonSign: 'Add Address', friendList: friendArray });
+      const isAddressValid = await wallet.validate(this.state.address);
+      if (isAddressValid.isvalid === false) {
+        // Put a toastr function here
+      } else {
+        low.get('friends').push({ label: this.state.label, address: this.state.address }).write();
+        friendArray.push({ label: this.state.label, address: this.state.address });
+        this.setState({ isAdding: false, buttonSign: 'Add Address', friendList: friendArray });
+      }
+
+
     }
   }
 

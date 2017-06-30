@@ -13,7 +13,7 @@ const db = low(app.getPath('userData') + '/db.json', {
     storage
 });
 
-db.defaults({ address: [], callTimes: [] })
+db.defaults({ address: [], callTimes: [], friends: [] })
   .write();
 
 

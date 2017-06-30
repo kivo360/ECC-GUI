@@ -75,12 +75,17 @@ export default class Wallet {
     return newAddress;
   }
 
-  sendMoney(sendAddress) {
-    console.log(sendAddress);
-    return new Promise((resolve, reject) => {
-      // Check for a set user
-        // If there is no set user reject
-      // Check to see if the address is a bitcoin address
-    });
+  async sendMoney(sendAddress, amount) {
+    const amountNum = parseFloat(amount);
+    const sendAddressStr = '' + sendAddress;
+    await client.sendToAddress(sendAddressStr, amountNum);
+
+
+  }
+
+  async validate(address) {
+    const result = await client.validateAddress(address);
+
+    return result;
   }
 }
